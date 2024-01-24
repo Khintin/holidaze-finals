@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const HotelBookingForm = () => {
     const [numAdults, setNumAdults] = useState(1);
@@ -13,7 +13,7 @@ const HotelBookingForm = () => {
     };
 
     return (
-        <div>
+        <div className="flex gap-3">
             <label>Adults:</label>
             <select value={numAdults} onChange={handleAdultsChange}>
                 {[...Array(10).keys()].map((index) => (

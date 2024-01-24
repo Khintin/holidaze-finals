@@ -36,7 +36,7 @@ export default function HotelDescriptionPage() {
                                         <Datepicker selectedDate={handleStartDateSelected} />
                                     </label>
                                 </div>
-                                <div>
+                                <div className="">
                                     <label className="text-base font-semibold">
                                         Check-out Date
                                         <Datepicker />

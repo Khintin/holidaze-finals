@@ -6,9 +6,9 @@ const Dateapp = () => {
     const [endDate, setEndDate] = useState(null);
 
     return (
-        <div className="container mx-auto p-4">
+        <div className="container mx-auto p-4 ">
             <h1 className="text-2xl font-bold mb-4">Hotel Booking</h1>
-            <div className="flex gap-4">
+            <div className="flex gap-5">
                 <div>
                     <label className="block text-sm font-semibold mb-1">Check-in Date</label>
                     <Datepicker selectedDate={startDate} onChange={(date) => setStartDate(date)} />
