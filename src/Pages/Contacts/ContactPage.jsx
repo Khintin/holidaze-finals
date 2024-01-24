@@ -187,7 +187,7 @@ const ContactPage = () => {
 
                         <button
                             type="submit"
-                            className="col-span-2 border-double border-blue-600 border-4 hover:bg-blue-600 py-1 px-4"
+                            className="font-medium items-center border-double border-blue-200 bg-blue-500 text-white hover:bg-blue-200 hover:text-black px-4 py-2 "
                         >
                             Submit
                         </button>
