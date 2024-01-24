@@ -1,5 +1,11 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+.heroimage {
+    background-image: url('assets/heroimage.jpg');
+}
+
+.blurdbackground {
+    background-image: url('assets/background.jpg');
+}

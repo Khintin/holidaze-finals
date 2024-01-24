@@ -1,3 +1,14 @@
-export default function Homepage() {
-    return <h1 className="bg-white text-black">Hello homepage</h1>
+import Footer from "../Components/Footer";
+import Hero from "../Components/Hero";
+import Navigation from "../Components/Navigation";
+import HotelFour from "../Components/HotelFour";
+
+export default function HomePage() {
+    return (
+        <main>
+            <Hero />
+            <HotelFour />
+            <Footer />
+        </main>
+    );
 }
