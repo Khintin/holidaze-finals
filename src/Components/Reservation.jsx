@@ -1,9 +1,30 @@
-import HotelImage from "../assets/hotel.jpg";
-import StarIcons from "../assets/icons8-star-64.png";
-import MapIcon from "../assets/icons8-map-48.png";
-import HotelPoolImage from "../assets/hotelpool.jpg";
+import { useEffect, useState } from "react";
+import { getMyBookings } from "../api/profile";
+import ReservationEntry from "./ReservationEntry";
+import Infobox from "./Shared/Infobox";
 
 export default function Reservation() {
+    const [error, setError] = useState(false);
+    const [loading, setLoading] = useState(true);
+    const [bookings, setBookings] = useState([]);
+
+    useEffect(() => {
+        const fetchBookings = async () => {
+            const _bookings = await getMyBookings();
+            console.log(_bookings);
+            setBookings(_bookings);
+        };
+
+        fetchBookings()
+            .catch((err) => {
+                console.error(err);
+                setError(true);
+            })
+            .finally(() => {
+                setLoading(false);
+            });
+    }, []);
+
     return (
         <>
             <section className="my-10 ">
@@ -16,67 +37,22 @@ export default function Reservation() {
                 </div>
 
                 <div className="bg-blue-100 max-w-7xl mx-auto flex flex-row my-10 items-center w-full">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4 my-10">
-                        <div className="p-8 bg-blue-200  rounded">
-                            <img
-                                src={HotelImage}
-                                alt="Sea Side"
-                                className="w-full border-gray-200 border object-cover h-48"
+                    {bookings.length == 0 && (
+                        <div className="w-full my-4 md:my-12 mx-auto">
+                            <Infobox
+                                type="info"
+                                title="No bookings"
+                                text="You don't have any reservations. Come back when you've booked a venue."
                             />
-                            <div />
-                            <div className="flex flex-row mt-2 justify-between">
-                                <h2 className=" sm:text-xl lg:text-base font-bold my-2">
-                                    Hotel Italy
-                                </h2>
-                                <div className="flex flex-row mt-2">
-                                    <img src={StarIcons} alt="icon star" className="h-5" />
-                                    <img src={StarIcons} alt="icon link" className="h-5" />
-                                    <img src={StarIcons} alt="icon link" className="h-5" />
-                                    <img src={StarIcons} alt="icon link" className="h-5" />
-                                    <img src={StarIcons} alt="icon link" className="h-5" />
-                                </div>
-                            </div>
-                            <div className="flex flex-row mt-2 gap-2 ">
-                                <div>
-                                    <img src={MapIcon} alt="Map Icon" className="h-6" />
-                                </div>
-                                <h3 className="font-semibold">Italy</h3>
-                            </div>
-                            <div className="mt-2 text-lg text-blue-600 font-semibold underline ">
-                                <a>Modify Reservation</a>
-                            </div>
                         </div>
-
-                        <div className="p-8 bg-blue-200  rounded">
-                            <img
-                                src={HotelPoolImage}
-                                alt="Sea Side"
-                                className="w-full border-gray-200 border object-cover h-48"
-                            />
-                            <div />
-                            <div className="flex flex-row mt-2 justify-between">
-                                <h2 className=" sm:text-xl lg:text-base font-bold my-2">
-                                    Hotel Grand Canaria
-                                </h2>
-                                <div className="flex flex-row mt-2">
-                                    <img src={StarIcons} alt="icon star" className="h-5" />
-                                    <img src={StarIcons} alt="icon link" className="h-5" />
-                                    <img src={StarIcons} alt="icon link" className="h-5" />
-                                    <img src={StarIcons} alt="icon link" className="h-5" />
-                                    <img src={StarIcons} alt="icon link" className="h-5" />
-                                </div>
-                            </div>
-                            <div className="flex flex-row mt-2 gap-2 ">
-                                <div>
-                                    <img src={MapIcon} alt="Map Icon" className="h-6" />
-                                </div>
-                                <h3 className="font-semibold">Italy</h3>
-                            </div>
-                            <div className="mt-2 text-lg text-blue-600 font-semibold underline ">
-                                <a>Modify Reservation</a>
-                            </div>
+                    )}
+                    {bookings.length > 0 && (
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full gap-4 p-4 my-10">
+                            {bookings.map((booking) => {
+                                return <ReservationEntry key={booking.id} reservation={booking} />;
+                            })}
                         </div>
-                    </div>
+                    )}
                 </div>
             </section>
         </>

@@ -3,9 +3,8 @@ import ContactPage from "./Pages/Contacts/ContactPage";
 import HomePage from "./Pages/HomePage";
 import LoginPage from "./Pages/LoginPage";
 import ProfilePage from "./Pages/ProfilePage";
-import RegisterMemberPage from "./Pages/RegisterMemberPage";
+import RegisterPage from "./Pages/RegisterPage";
 import HotelListPage from "./Pages/HotelListPage";
-import RegisterPartnerPage from "./Pages/RegisterPartnerPage";
 import PartnerSuccessPage from "./Pages/PartnerSuccessPage";
 import MemberSuccessPage from "./Pages/MemberSuccessPage";
 import PartnerProfilePage from "./Pages/PartnerProfilePage";
@@ -21,13 +20,12 @@ export default function App() {
                     <Route path="contact" element={<ContactPage />} />
                     <Route path="profile" element={<ProfilePage />} />
                     <Route path="login" element={<LoginPage />} />
-                    <Route path="registermember" element={<RegisterMemberPage />} />
-                    <Route path="registerpartner" element={<RegisterPartnerPage />} />
-                    <Route path="hotellist" element={<HotelListPage />} />
+                    <Route path="register" element={<RegisterPage />} />
+                    <Route path="hotels" element={<HotelListPage />} />
+                    <Route path="hotels/:venueId" element={<HotelDescriptionPage />} />
                     <Route path="partnersuccess" element={<PartnerSuccessPage />} />
                     <Route path="membersuccess" element={<MemberSuccessPage />} />
                     <Route path="partnerprofile" element={<PartnerProfilePage />} />
-                    <Route path="hotelinfo" element={<HotelDescriptionPage />} />
                 </Route>
             </Routes>
         </>

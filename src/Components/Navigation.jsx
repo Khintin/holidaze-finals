@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MainLogo from "./../assets/logo.png";
 import { Link } from "react-router-dom";
+import { getUser, isUserVenueManager } from "../api/auth";
+import { useAuth } from "../utils/AuthProvider";
 
 export default function Navigation() {
+    const { user } = useAuth();
     const [showMenu, setShowMenu] = useState(false);
 
     const handleShowMenu = () => {
-        let _showMenu = !showMenu;
+        const _showMenu = !showMenu;
         setShowMenu(_showMenu);
     };
 
@@ -55,16 +58,27 @@ export default function Navigation() {
                                     <span className="p-2">CONTACT</span>
                                 </Link>
                             </li>
-                            <li className=" font-bold text-base text-gray-600 hover:bg-blue-500 hover:text-white p-1">
-                                <Link to="/login">
-                                    <span className="p-2">LOG IN</span>
-                                </Link>
-                            </li>
-                            <li className=" font-bold text-base text-gray-600 hover:bg-blue-500 hover:text-white p-1">
-                                <Link to="/registermember">
-                                    <span className="p-2">REGISTER</span>
-                                </Link>
-                            </li>
+                            {!user && (
+                                <>
+                                    <li className=" font-bold text-base text-gray-600 hover:bg-blue-500 hover:text-white p-1">
+                                        <Link to="/login">
+                                            <span className="p-2">LOG IN</span>
+                                        </Link>
+                                    </li>
+                                    <li className=" font-bold text-base text-gray-600 hover:bg-blue-500 hover:text-white p-1">
+                                        <Link to="/register">
+                                            <span className="p-2">REGISTER</span>
+                                        </Link>
+                                    </li>
+                                </>
+                            )}
+                            {user && (
+                                <li className=" font-bold text-base text-gray-600 hover:bg-blue-500 hover:text-white p-1">
+                                    <Link to="/profile">
+                                        <span className="p-2">PROFILE</span>
+                                    </Link>
+                                </li>
+                            )}
                         </ul>
                     </div>
                 </nav>

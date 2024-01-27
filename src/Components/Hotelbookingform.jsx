@@ -1,15 +1,19 @@
 import React, { useState } from "react";
 
-const HotelBookingForm = () => {
-    const [numAdults, setNumAdults] = useState(1);
-    const [numChildren, setNumChildren] = useState(0);
+const HotelBookingForm = ({ onGuestsChanged, adults, children }) => {
+    const [numAdults, setNumAdults] = useState(adults);
+    const [numChildren, setNumChildren] = useState(children);
 
     const handleAdultsChange = (event) => {
-        setNumAdults(parseInt(event.target.value, 10));
+        const _adults = parseInt(event.target.value, 10);
+        setNumAdults(_adults);
+        onGuestsChanged(_adults + numChildren);
     };
 
     const handleChildrenChange = (event) => {
-        setNumChildren(parseInt(event.target.value, 10));
+        const _children = parseInt(event.target.value, 10);
+        setNumChildren(_children);
+        onGuestsChanged(numAdults + _children);
     };
 
     return (

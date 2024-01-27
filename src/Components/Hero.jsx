@@ -8,7 +8,7 @@ export default function Hero() {
                     <h1 className="text-4xl font-bold mb-6">BOOK PERFECT STAY FOR YOUR VACATION</h1>
                     <div className="">
                         <button className="font-medium items-center border-double border-blue-200 bg-blue-500 text-white hover:bg-blue-200 hover:text-black px-4 py-2 ">
-                            <Link to="/hotellist">Book Your Stay</Link>
+                            <Link to="/hotels">Book Your Stay</Link>
                         </button>
                     </div>
                 </div>
