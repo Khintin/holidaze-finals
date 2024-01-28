@@ -39,7 +39,7 @@
 1. Clone, Add and Push
 
 ```Shell
-   git clone *[GITHUB](https://github.com/Khintin/holidaze-finals)*
+   git clone [GITHUB](https://github.com/Khintin/holidaze-finals)
 ```
 
 2. Install dependencies
