@@ -25,7 +25,7 @@ export default function PropertyEntry({ venue, onDeleted, onEdit, onViewBookings
             <div className="flex flex-row mt-2 justify-between">
                 <h2 className=" sm:text-xl lg:text-base font-bold my-2">{venue.name}</h2>
             </div>
-            <div className="mt-2 text-lg text-blue-600 font-semibold underline ">
+            <div className="mt-2 text-lg text-blue-600 font-semibold underline  flex flex-col">
                 <button onClick={handleEditVenue}>Edit venue</button>
                 <button onClick={handleDeleteVenue}>Delete venue</button>
                 <button onClick={handleViewBookings}>View bookings</button>

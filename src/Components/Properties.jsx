@@ -92,13 +92,14 @@ export default function Properties() {
                         </div>
                     )}
                 </div>
-
-                <button
-                    onClick={() => handleEditVenue(null)}
-                    className="rounded bg-black text-white px-4 py-2"
-                >
-                    Create venue
-                </button>
+                <div className="flex flex-row justify-center md:justify-start max-w-7xl mx-auto ">
+                    <button
+                        onClick={() => handleEditVenue(null)}
+                        className="rounded-sm text-white !bg-blue-600 py-2 px-6 hover:!bg-blue-200 hover:text-black  "
+                    >
+                        Create Venue
+                    </button>
+                </div>
 
                 {isModalOpen && (
                     <EditVenueModal
