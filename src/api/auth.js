@@ -73,18 +73,26 @@ export function isUserVenueManager() {
 }
 
 export function validateUsername(username) {
+
+    const pattern = /^[a-z0-9_]+$/;
+    let error = false;
+
     if (!username || username.length == 0)
         return { valid: false, message: "Please provide a username" };
     else if (username.length < 5)
         return { valid: false, message: "Username must be at least 5 characters long" };
-    else if (username.indexOf(" ") != -1) // TODO: Change this to regex to prevent symbols and spaces
+    else if (username.indexOf(" ") != -1)
         return { valid: false, message: "Username can only contain letters, numbers, and underscores" };
 
     return { valid: true, value: username };
 }
 
 export function validateEmail(email) {
-    if (!email.endsWith("@stud.noroff.no") && !email.endsWith("@noroff.no")) // TODO: Change to this regex for better email validation
+
+    const regEx = /\S+@\S+\.\S+/;
+
+
+    if (!pat.test(email) || !email.endsWith("@stud.noroff.no") && !email.endsWith("@noroff.no")) // TODO: Change to this regex for better email validation
         return { valid: false, message: "Email must be a @stud.noroff.no or @noroff.no email address" };
 
     return { valid: true, value: email };

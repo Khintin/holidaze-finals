@@ -29,7 +29,7 @@ export default function HotelListEntry({ venue }) {
             )}
 
             <div />
-            <div className="flex flex-row mt-2 justify-between">
+            <div className="flex flex-col mt-2 ">
                 <h2 className=" sm:text-xl lg:text-base font-bold my-2">{venue.name}</h2>
                 <div className="flex flex-row mt-2">
                     {stars.map((idx) => {
@@ -37,7 +37,7 @@ export default function HotelListEntry({ venue }) {
                     })}
                 </div>
             </div>
-            <div className="flex flex-row mt-2 gap-2 ">
+            <div className="flex flex-row mt-2 gap-1 ">
                 <div>
                     <img src={MapIcon} alt="Map Icon" className="h-6" />
                 </div>

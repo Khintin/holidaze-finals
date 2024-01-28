@@ -1,3 +1,3 @@
 # Hello world
 
-![Holidaze screenshot](image.jpg)
+![Holidaze screenshot](holidazeweb.jpg)

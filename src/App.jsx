@@ -1,5 +1,5 @@
 import Layout from "./Components/Layout";
-import ContactPage from "./Pages/Contacts/ContactPage";
+
 import HomePage from "./Pages/HomePage";
 import LoginPage from "./Pages/LoginPage";
 import ProfilePage from "./Pages/ProfilePage";
@@ -17,7 +17,7 @@ export default function App() {
             <Routes>
                 <Route path="/" element={<Layout />}>
                     <Route index element={<HomePage />} />
-                    <Route path="contact" element={<ContactPage />} />
+
                     <Route path="profile" element={<ProfilePage />} />
                     <Route path="login" element={<LoginPage />} />
                     <Route path="register" element={<RegisterPage />} />

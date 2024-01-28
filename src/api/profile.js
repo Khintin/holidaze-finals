@@ -41,7 +41,12 @@ export async function getMyBookings() {
 }
 
 export async function updateAvatar(newAvatarUrl) {
-    // TODO: Validate the the newAvatarUrl to make sure its a url and an image
+    const validateImageUrl = (url) => {
+
+
+        const imageRegex = /\.(jpeg|jpg|gif|png)$/i;
+        return imageRegex.test(url);
+    };
 
     if (typeof newAvatarUrl != "string")
         return;

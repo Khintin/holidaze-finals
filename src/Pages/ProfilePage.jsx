@@ -87,12 +87,12 @@ export default function ProfilePage() {
                             type="button"
                             className="text-blue-600 underline"
                         >
-                            Edit Avatar
+                            Update Avatar
                         </button>
                     </div>
                     <h2 className="text-2xl font-semibold">{profile.name}</h2>
                     <p className="text-base font-medium">Email: {profile.email}</p>
-                    <div className="gap-3 flex flex-row ">
+                    <div className="gap-2 flex flex-row text-sm xs:text-xs  ">
                         <button className="transition duration-300 ease-out px-4 py-2 mt-2 text-white bg-blue-600 border-black hover:bg-blue-200 hover:text-black">
                             Add Venue
                         </button>

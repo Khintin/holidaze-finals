@@ -53,11 +53,7 @@ export default function Navigation() {
                                     <span className="p-2">HOME</span>
                                 </Link>
                             </li>
-                            <li className="font-bold text-base text-gray-600 hover:bg-blue-500 hover:text-white p-1">
-                                <Link to="/contact">
-                                    <span className="p-2">CONTACT</span>
-                                </Link>
-                            </li>
+
                             {!user && (
                                 <>
                                     <li className=" font-bold text-base text-gray-600 hover:bg-blue-500 hover:text-white p-1">

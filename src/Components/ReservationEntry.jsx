@@ -28,7 +28,7 @@ export default function ReservationEntry({ reservation }) {
                 className="w-full border-gray-200 border object-cover h-48"
             />
             <div />
-            <div className="flex flex-row mt-2 justify-between">
+            <div className="flex flex-col mt-2 ">
                 <h2 className=" sm:text-xl lg:text-base font-bold my-2">{venue.name}</h2>
                 <div className="flex flex-row mt-2">
                     {stars.map((idx) => {
@@ -49,6 +49,15 @@ export default function ReservationEntry({ reservation }) {
                 <p>
                     <strong>Check out:</strong> {formatDate(reservation.dateTo)}
                 </p>
+            </div>
+            <div className="justify-center flex md:justify-start content-center mt-5">
+                <button
+                    id="btn-login"
+                    type="submit"
+                    className="rounded-sm text-sm !bg-white py-1 px-4 hover:!bg-blue-600 hover:text-white "
+                >
+                    Cancel Reservation
+                </button>
             </div>
         </div>
     );
