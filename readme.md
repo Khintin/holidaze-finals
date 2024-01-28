@@ -39,7 +39,8 @@
 1. Clone, Add and Push
 
 ```Shell
-   git clone git@github.com: <a href="https://github.com/Khintin/holidaze-finals"> Github </a>
+   git clone git@github.com:
+   <a href="https://github.com/Khintin/holidaze-finals"> Github </a>
 ```
 
 2. Install dependencies
