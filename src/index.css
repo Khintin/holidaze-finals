@@ -9,3 +9,7 @@
 .blurdbackground {
     background-image: url('assets/background.jpg');
 }
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.6) !important;
+}

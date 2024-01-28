@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import Infobox from "../Components/Shared/Infobox";
 import { useAuth } from "../utils/AuthProvider";
 import Properties from "../Components/Properties";
-import AddVenue from "../Components/addvenue";
 import { useEffect, useRef, useState } from "react";
 import { getMyProfile, updateAvatar } from "../api/profile";
 
@@ -93,12 +92,6 @@ export default function ProfilePage() {
                     <h2 className="text-2xl font-semibold">{profile.name}</h2>
                     <p className="text-base font-medium">Email: {profile.email}</p>
                     <div className="gap-2 flex flex-row text-sm xs:text-xs  ">
-                        <button className="transition duration-300 ease-out px-4 py-2 mt-2 text-white bg-blue-600 border-black hover:bg-blue-200 hover:text-black">
-                            Add Venue
-                        </button>
-                        <button className="transition duration-300 ease-out px-4 py-2 mt-2 text-white bg-blue-600 border-black hover:bg-blue-200 hover:text-black">
-                            View Properties
-                        </button>
                         <button
                             onClick={handleLogOut}
                             className="transition duration-300 ease-out px-4 py-2 mt-2 text-white bg-blue-600 border-black hover:bg-blue-200 hover:text-black"
@@ -111,12 +104,11 @@ export default function ProfilePage() {
             <div className="my-20 ">
                 <Reservation />
             </div>
-            <div className="my-20 ">
-                <Properties />
-            </div>
-            <div>
-                <AddVenue />
-            </div>
+            {profile.venueManager && (
+                <div className="my-20 ">
+                    <Properties />
+                </div>
+            )}
         </>
     );
 }

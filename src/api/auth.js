@@ -91,8 +91,7 @@ export function validateEmail(email) {
 
     const regEx = /\S+@\S+\.\S+/;
 
-
-    if (!pat.test(email) || !email.endsWith("@stud.noroff.no") && !email.endsWith("@noroff.no")) // TODO: Change to this regex for better email validation
+    if (!regEx.test(email) || !email.endsWith("@stud.noroff.no") && !email.endsWith("@noroff.no"))
         return { valid: false, message: "Email must be a @stud.noroff.no or @noroff.no email address" };
 
     return { valid: true, value: email };

@@ -11,7 +11,6 @@ export default function Reservation() {
     useEffect(() => {
         const fetchBookings = async () => {
             const _bookings = await getMyBookings();
-            console.log(_bookings);
             setBookings(_bookings);
         };
 

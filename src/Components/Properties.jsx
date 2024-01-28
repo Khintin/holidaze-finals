@@ -1,9 +1,60 @@
-import HotelImage from "../assets/hotel.jpg";
-import StarIcons from "../assets/icons8-star-64.png";
-import MapIcon from "../assets/icons8-map-48.png";
-import HotelPoolImage from "../assets/hotelpool.jpg";
+import { useState, useEffect, useRef } from "react";
+import { getMyVenues } from "../api/profile";
+import PropertyEntry from "./PropertyEntry";
+import Infobox from "./Shared/Infobox";
+import EditVenueModal from "./EditVenueModal";
+import ViewBookingsModal from "./ViewBookingsModal";
 
 export default function Properties() {
+    const editVenueModal = useRef(null);
+
+    const [error, setError] = useState(false);
+    const [loading, setLoading] = useState(true);
+    const [venues, setVenues] = useState([]);
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isBookingsModalOpen, setIsBookingsModalOpen] = useState(false);
+    const [selectedVenue, setSelectedVenue] = useState(null);
+
+    const [venueToEdit, setVenueToEdit] = useState(null);
+    const [refreshVenues, setRefreshVenues] = useState(true);
+
+    useEffect(() => {
+        const fetchVenues = async () => {
+            const _venues = await getMyVenues();
+            setVenues(_venues);
+        };
+
+        fetchVenues()
+            .catch((err) => {
+                console.error(err);
+                setError(true);
+            })
+            .finally(() => {
+                setLoading(false);
+            });
+    }, [refreshVenues]);
+
+    const handleEditVenue = (venueData) => {
+        setSelectedVenue(venueData);
+        setIsModalOpen(true);
+    };
+
+    const handleVenueSaved = (event) => {
+        setRefreshVenues(!refreshVenues);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+        setIsBookingsModalOpen(false);
+        setSelectedVenue(null);
+    };
+
+    const handleViewBookings = (venue) => {
+        setSelectedVenue(venue);
+        setIsBookingsModalOpen(true);
+    };
+
     return (
         <>
             <section className="my-10 ">
@@ -16,68 +67,50 @@ export default function Properties() {
                 </div>
 
                 <div className="bg-blue-100 max-w-7xl mx-auto flex flex-row my-10 items-center w-full">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4 my-10">
-                        <div className="p-8 bg-blue-200  rounded">
-                            <img
-                                src={HotelImage}
-                                alt="Sea Side"
-                                className="w-full border-gray-200 border object-cover h-48"
+                    {venues.length == 0 && (
+                        <div className="w-full my-4 md:my-12 mx-auto">
+                            <Infobox
+                                type="info"
+                                title="No venues"
+                                text="You don't own any venues. Create your first venue to manage it here."
                             />
-                            <div />
-                            <div className="flex flex-row mt-2 justify-between">
-                                <h2 className=" sm:text-xl lg:text-base font-bold my-2">
-                                    Hotel Italy
-                                </h2>
-                                <div className="flex flex-row mt-2">
-                                    <img src={StarIcons} alt="icon star" className="h-5" />
-                                    <img src={StarIcons} alt="icon link" className="h-5" />
-                                    <img src={StarIcons} alt="icon link" className="h-5" />
-                                    <img src={StarIcons} alt="icon link" className="h-5" />
-                                    <img src={StarIcons} alt="icon link" className="h-5" />
-                                </div>
-                            </div>
-                            <div className="flex flex-row mt-2 gap-2 ">
-                                <div>
-                                    <img src={MapIcon} alt="Map Icon" className="h-6" />
-                                </div>
-                                <h3 className="font-semibold">Italy</h3>
-                            </div>
-                            <div className="mt-2 text-lg text-blue-600 font-semibold underline ">
-                                <a>Modify Property</a>
-                            </div>
                         </div>
-
-                        <div className="p-8 bg-blue-200  rounded">
-                            <img
-                                src={HotelPoolImage}
-                                alt="Sea Side"
-                                className="w-full border-gray-200 border object-cover h-48"
-                            />
-                            <div />
-                            <div className="flex flex-row mt-2 justify-between">
-                                <h2 className=" sm:text-xl lg:text-base font-bold my-2">
-                                    Hotel Grand Canaria
-                                </h2>
-                                <div className="flex flex-row mt-2">
-                                    <img src={StarIcons} alt="icon star" className="h-5" />
-                                    <img src={StarIcons} alt="icon link" className="h-5" />
-                                    <img src={StarIcons} alt="icon link" className="h-5" />
-                                    <img src={StarIcons} alt="icon link" className="h-5" />
-                                    <img src={StarIcons} alt="icon link" className="h-5" />
-                                </div>
-                            </div>
-                            <div className="flex flex-row mt-2 gap-2 ">
-                                <div>
-                                    <img src={MapIcon} alt="Map Icon" className="h-6" />
-                                </div>
-                                <h3 className="font-semibold">Italy</h3>
-                            </div>
-                            <div className="mt-2 text-lg text-blue-600 font-semibold underline ">
-                                <a>Modify Property</a>
-                            </div>
+                    )}
+                    {venues.length > 0 && (
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full gap-4 p-4 my-10">
+                            {venues.map((venue) => {
+                                return (
+                                    <PropertyEntry
+                                        key={venue.id}
+                                        venue={venue}
+                                        onDeleted={() => setRefreshVenues(!refreshVenues)}
+                                        onEdit={(venue) => handleEditVenue(venue)}
+                                        onViewBookings={(venue) => handleViewBookings(venue)}
+                                    />
+                                );
+                            })}
                         </div>
-                    </div>
+                    )}
                 </div>
+
+                <button
+                    onClick={() => handleEditVenue(null)}
+                    className="rounded bg-black text-white px-4 py-2"
+                >
+                    Create venue
+                </button>
+
+                {isModalOpen && (
+                    <EditVenueModal
+                        closeModal={handleCloseModal}
+                        venue={selectedVenue}
+                        onSave={handleVenueSaved}
+                    />
+                )}
+
+                {isBookingsModalOpen && (
+                    <ViewBookingsModal closeModal={handleCloseModal} venue={selectedVenue} />
+                )}
             </section>
         </>
     );

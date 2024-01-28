@@ -7,7 +7,6 @@ import RegisterPage from "./Pages/RegisterPage";
 import HotelListPage from "./Pages/HotelListPage";
 import PartnerSuccessPage from "./Pages/PartnerSuccessPage";
 import MemberSuccessPage from "./Pages/MemberSuccessPage";
-import PartnerProfilePage from "./Pages/PartnerProfilePage";
 import HotelDescriptionPage from "./Pages/HotelDescriptionPage";
 import { Routes, Route } from "react-router-dom";
 
@@ -25,7 +24,6 @@ export default function App() {
                     <Route path="hotels/:venueId" element={<HotelDescriptionPage />} />
                     <Route path="partnersuccess" element={<PartnerSuccessPage />} />
                     <Route path="membersuccess" element={<MemberSuccessPage />} />
-                    <Route path="partnerprofile" element={<PartnerProfilePage />} />
                 </Route>
             </Routes>
         </>

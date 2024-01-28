@@ -44,3 +44,21 @@ export async function getBookingById(bookingId) {
     const json = await res.json();
     return json;
 }
+
+export async function deleteBookingById(bookingId) {
+    const user = getUser();
+
+    if (!user || !user.name || !user.accessToken)
+        throw new Error("User is not signed in");
+
+    const headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    headers.append("Authorization", `Bearer ${user.accessToken}`);
+
+    const res = await fetch(BASE_URL + BOOKINGS + `/${bookingId}`, {
+        method: "DELETE",
+        headers: headers
+    });
+
+    return res.ok;
+}
