@@ -17,8 +17,8 @@
 -   [x] <a href="https://www.notion.so/bddbabc198894d0ab56ac8df33ed4dc1?v=c97149a591814d62805eee525bc1dfd6&pvs=4"> Gant Chart </a>
 -   [x] Design Prototype
 -   [x] Stye Guide
--   [x] Kanban Board <https://trello.com/invite/b/hOqlxDHB/ATTI913b0598c0275bf7f0e42df88d4d28e41BA81414/final-exam-holidaze-kanban
--   [x] Repository
+-   [x] <a href="https://trello.com/invite/b/hOqlxDHB/ATTI913b0598c0275bf7f0e42df88d4d28e41BA81414/final-exam-holidaze-kanban"> Kanban Board</a>
+-   [x] <a href="https://github.com/Khintin/holidaze-finals"> Repository </a>
 -   [x] Hosted Demo
 
 ## Built with
@@ -39,7 +39,7 @@
 1. Clone, Add and Push
 
 ```Shell
-   git clone git@github.com:[GITHUB EXAM](https://github.com/Khintin/holidaze-finals)
+   git clone git@github.com: <a href="https://github.com/Khintin/holidaze-finals"> Github </a>
 ```
 
 2. Install dependencies
