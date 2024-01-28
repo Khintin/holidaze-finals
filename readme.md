@@ -39,7 +39,7 @@
 1. Clone, Add and Push
 
 ```Shell
-   git clone [GITHUB](https://github.com/Khintin/holidaze-finals)
+   git clone git@github.com:[GITHUB EXAM](https://github.com/Khintin/holidaze-finals)
 ```
 
 2. Install dependencies
@@ -53,3 +53,11 @@
 ```shell
    npm run dev
 ```
+
+# Contact
+
+<div>
+<a href="https://www.linkedin.com/in/cristina-s-635051115/">
+  <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
+ </a>
+</div>
