@@ -14,7 +14,7 @@
 
 ## Task to Deliver
 
--   [x] Gant Chart Gant Chart <https://www.notion.so/bddbabc198894d0ab56ac8df33ed4dc1?v=c97149a591814d62805eee525bc1dfd6&pvs=4
+-   [x] <a href="https://www.notion.so/bddbabc198894d0ab56ac8df33ed4dc1?v=c97149a591814d62805eee525bc1dfd6&pvs=4"> Gant Chart </a>
 -   [x] Design Prototype
 -   [x] Stye Guide
 -   [x] Kanban Board <https://trello.com/invite/b/hOqlxDHB/ATTI913b0598c0275bf7f0e42df88d4d28e41BA81414/final-exam-holidaze-kanban
