@@ -17,3 +17,11 @@
 -   [x] Hosted Demo
 
 #Built with
+
+| Built      | Tools and Languages |
+| ---------- | ------------------- |
+| Plan       | Notion, Trello      |
+| Design     | Figma               |
+| Language   | HTML, JS            |
+| Frameworks | Tailwind, React.Js  |
+| Tools      | VS Code, Vite       |
