@@ -14,8 +14,6 @@
 
 ## Task to Deliver
 
-### links and URL's
-
 -   [x] Gant Chart
 -   [x] Design Prototype
 -   [x] Stye Guide
@@ -32,24 +30,25 @@
 | Language   | HTML, JS            |
 | Frameworks | Tailwind, React.Js  |
 | Tools      | VS Code, Vite       |
+| Host       | Netlify             |
 
 ## Getting Started
 
 ### Installation
 
-1. Clone the project
+1. Clone, Add and Push
 
-```shell
-   git clone https://github.com/Khintin/holidaze-finals
+```Shell
+   git clone *[GITHUB](https://github.com/Khintin/holidaze-finals)*
 ```
 
-2. Install Project dependencies
+2. Install dependencies
 
 ```shell
    npm install
 ```
 
-3. To access localhost and start project
+3. To access local host and start the project
 
 ```shell
    npm run dev
