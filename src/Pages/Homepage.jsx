@@ -3,7 +3,7 @@ import HotelFour from "../Components/HotelFour";
 
 export default function HomePage() {
     return (
-        <main id="main">
+        <main>
             <Hero />
             <HotelFour />
         </main>
