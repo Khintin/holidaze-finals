@@ -1,13 +1,14 @@
-#**HOLIDAZE**
+# **HOLIDAZE**
 
-##Holidaze is a hotel booking system and a marketplace for business who want to lists their properties. Seemlessly connects travallers to find their memorable and incredble place to stay.
+## Holidaze is a hotel booking system and a marketplace for business who want to lists their properties. Seemlessly connects travallers to find their memorable and incredble place to stay.
 
-##Our project exam for semester two at NOROFF as Front-end DEveveloper.
+## Our project exam for semester two at NOROFF as Front-end DEveveloper.
 
 ![Holidaze screenshot](./src/assets/holidazeweb.jpg)
 
-#Task to Deliver
-###links and URL's
+# Task to Deliver
+
+### links and URL's
 
 -   [x] Gant Chart
 -   [x] Design Prototype
@@ -16,7 +17,7 @@
 -   [x] Repository
 -   [x] Hosted Demo
 
-#Built with
+# Built with
 
 | Built      | Tools and Languages |
 | ---------- | ------------------- |
