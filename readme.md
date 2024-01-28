@@ -4,7 +4,7 @@
 
 ##Our project exam for semester two at NOROFF as Front-end DEveveloper.
 
-![Holidaze screenshot](holidazeweb.jpg)
+![Holidaze screenshot](./src/assets/holidazeweb.jpg)
 
 #Task to Deliver
 ###links and URL's
